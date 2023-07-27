@@ -1,0 +1,66 @@
+<%- layout('layouts/boilerplate') %>
+    <div class="row">
+        <h1 class="text-center">Edit Project</h1>
+        <div class="col-md-6 offset-md-3">
+            <form action="/admin/newproject" method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label class="form-label" for="Project[title]">Title</label>
+                    <input class="form-control" type="text" name="Project[title]" id="Project[title]">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="Project[description]">Description</label>
+                    <input class="form-control" type="text" name="Project[description]" id="Project[description]">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="Project[location]">Location</label>
+                    <input class="form-control" type="text" name="Project[location]" id="Project[location]">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="Project[projectStatus]">Project Status</label>
+                    <input class="form-control" type="text" name="Project[projectStatus]" id="Project[projectStatus]">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="Project[siteArea]">Site Area</label>
+                    <input class="form-control" type="text" name="Project[siteArea]" id="Project[siteArea]">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="Project[projectArea]">Project Area</label>
+                    <input class="form-control" type="text" name="Project[projectArea]" id="Project[projectArea]">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="Project[projectType]">Project Type</label>
+                    <input class="form-control" type="text" name="Project[projectType]" id="Project[projectType]">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="Project[projectTeam]">Project Team</label>
+                    <input class="form-control" type="text" name="Project[projectTeam]" id="Project[projectTeam]">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="Project[collaborators]">Collaborators</label>
+                    <input class="form-control" type="text" name="" id="">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="Project[photographyName]">Photography Name</label>
+                    <input class="form-control" type="text" name="Project[photographyName]"
+                        id="Project[photographyName]">
+                </div>
+                <div class="mb-3">
+                    <div class="form-file custom-file">
+                        <input type="file" class="form-file-input" id="image" name="image" multiple>
+                        <label class="form-file-label" for="image">
+                            <span class="form-file-text custom-file-label">Choose image(s)...</span>
+                            <span class="form-file-button">Browse</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-primary btn-success" type="submit">Add New Project</button>
+                </div>
+            </form>
+        </div>
+    </div>
