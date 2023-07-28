@@ -1,4 +1,4 @@
-const cloudinary = require("cloudinary");
+const cloudinary = require("cloudinary").v2;
 const { CloudinaryStorage } = require("multer-storage-cloudinary");
 const project = require("../models/projects");
 
@@ -11,7 +11,7 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
     cloudinary,
     params: {
-        folder: `Project Images`,
+        folder: `ProjectImages`,
         allowedFormats: ['jpeg', 'png', 'jpg', 'webp']
     }
 });

@@ -23,12 +23,15 @@ module.exports.renderAdminAllProjects = async (req, res) => {
 }
 
 module.exports.createProject = async (req, res, next) => {
-    res.send(req.body);
-    // const projectData = new Project(req.body.project);
-    // projectData.images = req.files.map(f => ({ url: f.path, filename: f.filename }));
-    console.log(req.file)
-    res.send(projectData);
-    // await projectData.save();
+    const projectData = new Project(req.body.project);
+    projectData.images = req.files.map(f => ({ url: f.path, filename: f.filename }));
+    console.log(projectData);
+    await projectData.save();
     // res.redirect(`/admin/${project._id}`)
     res.redirect(`/admin/dashboard`)
+}
+
+module.exports.renderAdminProjectShow = async (req, res) => {
+    const project = await Project.findById(req.params.id);
+    res.render('admin/adminProjectShow', { project })
 }

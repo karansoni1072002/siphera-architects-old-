@@ -18,11 +18,15 @@ router.route('/admin/dashboard')
 
 router.route('/admin/newproject')
     .get(admin.renderAdminNewProject)
-    .post(upload.single('images'), admin.createProject)
+    .post(upload.array('image'), admin.createProject)
 // .post(admin.createProject)
-
 
 router.route('/admin/allprojects')
     .get(admin.renderAdminAllProjects)
+
+router.route('/admin/:id')
+    .get(admin.renderAdminProjectShow)
+
+
 
 module.exports = router;
