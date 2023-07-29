@@ -1,9 +1,7 @@
-<%- layout('layouts/boilerplate.ejs') %>
+<h4>
+    Error Message: <% err.message %>
+</h4>
 
-    <h4>
-        Error Message: <% err.message %>
-    </h4>
-
-    <p>
-        Stack: <% err.stack %>
-    </p>
+<p>
+    Stack: <% err.stack %>
+</p>

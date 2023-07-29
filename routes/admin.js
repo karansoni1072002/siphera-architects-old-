@@ -6,27 +6,40 @@ const passport = require("passport");
 const multer = require("multer");
 const { storage } = require("../cloudinary");
 const upload = multer({ storage })
+const { isLoggedIn } = require("../middleware");
+const catchAsync = require("../utils/catchAsync");
 // const upload = multer({ dest: 'uploads/' })
 
+router.get('/admin', (req, res) => {
+    res.redirect('/admin/login');
+})
 router.route('/admin/login')
     .get(admin.renderAdminLogin)
-    .post(passport.authenticate('local', { failureFlash: true, failureRedirect: '/admin/login' }), admin.adminLogin)
+    .post(passport.authenticate('local', { failureFlash: false, failureRedirect: '/admin/login' }), admin.adminLogin)
+
+router.route('/admin/register')
+    .get(admin.renderAdminRegister)
+    .post(catchAsync(admin.adminRegister))
+
+router.route('/admin/logout')
+    .get(admin.adminLogout)
 
 router.route('/admin/dashboard')
-    .get(admin.renderAdminDashboard)
-
+    .get(isLoggedIn, admin.renderAdminDashboard)
 
 router.route('/admin/newproject')
-    .get(admin.renderAdminNewProject)
-    .post(upload.array('image'), admin.createProject)
-// .post(admin.createProject)
+    .get(isLoggedIn, admin.renderAdminNewProject)
+    .post(isLoggedIn, upload.array('image'), catchAsync(admin.createProject))
 
 router.route('/admin/allprojects')
-    .get(admin.renderAdminAllProjects)
+    .get(isLoggedIn, catchAsync(admin.renderAdminAllProjects))
 
 router.route('/admin/:id')
-    .get(admin.renderAdminProjectShow)
+    .get(isLoggedIn, catchAsync(admin.renderAdminProjectShow))
+    .put(isLoggedIn, upload.array('image'), catchAsync(admin.adminUpdateProject))
+    .delete(isLoggedIn, catchAsync(admin.adminDeleteProject))
 
-
+router.route('/admin/:id/edit')
+    .get(isLoggedIn, catchAsync(admin.renderAdminProjectEdit))
 
 module.exports = router;
