@@ -20,7 +20,7 @@ const ContactPage = () => {
         <div className="ContactBG">
             <div className="container">
                 <div className="ContactHeading">
-                    <h3>Get in Touch</h3>
+                    <h3>Contact Us</h3>
                 </div>
                 <div className="row">
 
