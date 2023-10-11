@@ -7,9 +7,12 @@ const path = require("path");
 const session = require("express-session");
 const methodOverride = require("method-override");
 const { default: mongoose } = require("mongoose");
+const cookieParser = require("cookie-parser");
+const cors = require("cors");
+// const expressFileUpload = require("express-fileupload");
 
 const app = express();
-
+// app.use(expressFileUpload());
 
 
 mongoose.connect('mongodb://localhost:27017/siphera-architects');
@@ -28,6 +31,8 @@ app.set('views', path.join(__dirname, 'views'))
 
 // app.use(bodyParser.urlencoded({ extended: true }))
 // app.use(bodyParser.json())
+app.use(cookieParser());
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));

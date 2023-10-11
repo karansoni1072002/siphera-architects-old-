@@ -1,0 +1,48 @@
+.MainDiv {
+    width: 100%;
+    height: 100%;
+    background-color: #343a40;
+}
+
+.CategoryShowDiv {
+    padding: 3%;
+    display: flex;
+    width: 100%;
+}
+
+.ImageClass {
+    flex: 1;
+}
+
+.InsideImageClass {
+    width: 50%;
+    margin-top: 0;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.TextClass {
+    flex: 1;
+    display: flex;
+    font-family: Fahkwang;
+}
+
+.InsideTextClass {
+    width: 75%;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.Image {
+    height: 50%;
+    width: auto;
+}
+
+#textclass2 {
+    font-family: Fahkwang;
+}
+
+.myButton {
+    color: white;
+    border: 1px solid white;
+}

@@ -1,18 +1,19 @@
 const jwt = require("jsonwebtoken");
-const User = require("./models/user");
+const Admin = require("./models/admin")
 
 module.exports.isLoggedIn = async (req, res, next) => {
     try {
         const token = req.cookies.jwtoken;
-        const verofyToken = jwt.verify(token, process.env.SECRET_KEY);
+        // console.log(token)
+        const verifyToken = jwt.verify(token, process.env.SECRET_KEY);
 
-        rootUser = await User.findOne({ _id: verifyToken._id, "tokens.token": token });
+        const rootUser = await Admin.findOne({ _id: verifyToken._id, "tokens.token": token });
 
         if (!rootUser) { throw new Error("User not Found") }
 
         req.token = token;
         req.rootUser = rootUser;
-        req.User._id = rootUser._id;
+        req.adminID = rootUser._id;
 
         next();
     } catch (err) {

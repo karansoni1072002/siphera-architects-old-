@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import images from '../../assets/images'
-import '../../components/Stylesheets/Public.css'
+import '../../components/Stylesheets/ContactPage.css'
 
 const ContactPage = () => {
     const [msg, setMsg] = useState({

@@ -11,6 +11,11 @@ import carouselImage6 from './HomeCarouselImages/6.png'
 import phone from './Utils/Phone.png'
 import email from './Utils/Email.png'
 import thumbsup from './Utils/Thumbsup.png'
+import Bungalow from './PortfolioCategoryImages/Bungalow.jpg'
+import SingleResidential from './PortfolioCategoryImages/SingleResidential.jpg'
+import MultiResidential from './PortfolioCategoryImages/MultiResidential.jpg'
+import Villa from './PortfolioCategoryImages/Villa.jpg'
+import SkyScraper from './PortfolioCategoryImages/SkyScraper.jpg'
 
 const images = {
     SipheraLogo,
@@ -25,7 +30,12 @@ const images = {
     carouselImage6,
     phone,
     email,
-    thumbsup
+    thumbsup,
+    Bungalow,
+    SingleResidential,
+    MultiResidential,
+    Villa,
+    SkyScraper
 };
 
 export default images

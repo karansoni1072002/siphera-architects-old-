@@ -35,7 +35,7 @@ const AdminRegisterPage = () => {
         } else {
             window.alert("Registration Succesful")
 
-            navigateTo("/login")
+            navigateTo("/admin/login")
         }
     }
 
